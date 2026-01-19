@@ -1,0 +1,43 @@
+--- PREPARING ENVIRONMENT ---
+--- MUST CREATE makerpm USER BEFORE THAT STEP ---
+sudo apt update
+sudo apt install rpm build-essential
+rpmbuild --version
+sudo useradd -m -s /bin/bash makerpm
+sudo usermod -aG sudo makerpm
+sudo passwd makerpm 
+su makerpm
+mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros
+mkdir ~/Downloads
+
+--- BUILDING PACKAGE ---
+cd Downloads/
+ls
+sudo cp /home/ned8800/qemu-data/shared-folder/Yandex_Music_amd64_5.78.4.deb ./
+ls
+sudo chown makerpm:makerpm ./Yandex_Music_amd64_5.78.4.deb 
+ls
+cd ~/rpmbuild/SOURCES/
+ls -latr
+mkdir ./temp
+cd temp/
+ls -latr
+cp ~/Downloads/Yandex_Music_amd64_5.78.4.deb ./
+ls -latr
+sudo alien -r -v --scripts --generate ./Yandex_Music_amd64_5.78.4.deb 
+ls -latr
+cp -R ./yandexmusic-5.78.4/ ~/rpmbuild/SPECS/
+cd ~/rpmbuild/SPECS/
+ls
+cd yandexmusic-5.78.4/
+ls
+rpmbuild -ba --target x86_64 --buildroot="$(pwd)" ./yandexmusic-5.78.4-1.spec 
+ls
+cd ~/rpmbuild/SPECS/
+ls -latr
+cp yandexmusic-5.78.4-1.x86_64.rpm ~/Downloads/
+rm ~/Downloads/yandexmusic-5.78.4-1.x86_64.rpm 
+cp yandexmusic-5.78.4-1.x86_64.rpm ~/Downloads/
+history 30
+
