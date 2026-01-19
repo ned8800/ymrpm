@@ -6,7 +6,6 @@ I do not claim any rights to the Yandex Music app. All rights to the original ap
 This repository only offers tools for building (converting) the .rpm package of Yandex Music app from the official .deb package, and will be archived as soon as Yandex releases the official version of the application in .rpm format.
 
 -- ru --
-# ymrpm
 Этот репозиторий содержит средства для создания .rpm-пакета Яндекс Музыки из официального .deb-пакета Яндекс Музыки.
 
 Я не претендую на какие-либо права на приложение Яндекс Музыки. Все права на оригинальное приложение принадлежат Яндексу.
