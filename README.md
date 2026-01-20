@@ -11,15 +11,15 @@ This repository only offers tools for building (converting) the .rpm package of 
 At the moment, the sequence of creating the .rpm package of Yandex Music is as follows:
 1) create a virtual machine with a debian-based GNU Linux system (I used ubuntu-22.04). Log in to the machine.
 2) Create a makerpm user with superuser privileges (sudo) !!!
-3) Prepare the environment for assembly, the preparation instructions are located in the files "create_rpm_from_deb_command_history.txt"
-  and "How to Use rpmbuild on Ubuntu to Create an RPM Package.pdf" in the <a href="docs">docs</a> folder.
-4) Log in to the console under user "makerpm" with comand `su makerpm`. Transfer the script to the makerpm user space
-  using the command `sudo cp "/home/<your-username>/path/to/script"  ./`. Then  run the script:`./download_and_convert_script.sh `. 
-  If the script does not run, make it executable using the command `chmod +x./download_and_convert_script.sh `.
-  The script will automatically download the latest version of .deb Yandex Music package from the official website and convert it to
-  the .rpm package. The converted .rpm package will be stored in the directory from where the script was launched.
- 5*) To prevent errors, I recommend running the script inside the "/home/makerpm" directory.
-   Then transfer the converted .rpm package to the directory of the main user of the VM using the `sudo cp` command.
+3) Prepare the environment for assembly, the preparation instructions are located in the files "create_rpm_from_deb_command_history.txt" <br>
+  and "How to Use rpmbuild on Ubuntu to Create an RPM Package.pdf" in the <a href="docs">docs</a> folder. <br>
+4) Log in to the console under user "makerpm" with comand `su makerpm`. Transfer the script to the makerpm user space <br>
+  using the command `sudo cp "/home/<your-username>/path/to/script"  ./`. Then  run the script:`./download_and_convert_script.sh `.  <br>
+  If the script does not run, make it executable using the command `chmod +x./download_and_convert_script.sh `. <br>
+  The script will automatically download the latest version of .deb Yandex Music package from the official website and convert it to <br>
+  the .rpm package. The converted .rpm package will be stored in the directory from where the script was launched. <br>
+ 5*) To prevent errors, I recommend running the script inside the "/home/makerpm" directory. <br>
+   Then transfer the converted .rpm package to the directory of the main user of the VM using the `sudo cp` command. <br>
 
 
 ---
