@@ -22,6 +22,8 @@ At the moment, the sequence of creating the .rpm package of Yandex Music is as f
    Then transfer the converted .rpm package to the directory of the main user of the VM using the `sudo cp` command. <br>
 
 
+The built packages are tested on Fedora 43.
+
 ---
 
 ### -- ru --
@@ -45,3 +47,6 @@ At the moment, the sequence of creating the .rpm package of Yandex Music is as f
   Конвертированный .rpm пакет будет лежать в директории, откуда скрипт был запущен. <br>
  5*) Для предотвращения ошибок, рекомендую запускать скрипт внутри директории"/home/makerpm". <br>
    Затем перенести конвертированный .rpm пакет в директорию основного пользователя виртуальной машины с помощью команды `sudo cp`. <br>
+
+
+Собранные пакеты протестированы на Fedora 43.
