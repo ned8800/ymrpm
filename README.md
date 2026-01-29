@@ -23,6 +23,7 @@ At the moment, the sequence of creating the .rpm package of Yandex Music is as f
 
 
 The built packages are tested on Fedora 43.
+Latest built package located in [releases](https://github.com/ned8800/ymrpm/releases/latest) page
 
 ---
 
