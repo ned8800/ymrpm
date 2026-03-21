@@ -83,7 +83,7 @@ echo "You must provide elevated (SUDO) privileges, so alien could correctly gene
 echo -ne "Provide your sudo password using stdin or console input below:${NC}\n"
 
 # read password to local variable
-read -p "your sudo password: " -s SUDOPWD
+read -p "[sudo] password for $USER: " -s SUDOPWD
 
 echo -ne "${CYAN}\n<------------------------------------------------------>${NC}\n\n"
 
@@ -132,7 +132,7 @@ yandex_music_desktop_file_location="./usr/share/applications/yandexmusic.desktop
 if [[ -e "$yandex_music_desktop_file_location" && -r "$yandex_music_desktop_file_location" ]]; then
     echo -ne "${CYAN} yandex music desktop file exists.\n${NC}"
     sed -i '/^Name=.*$/ s/\(.*\)/\1 Yandex Music/' $yandex_music_desktop_file_location
-
+    sed -i '/^Categories=.*$/ s/\(.*\)/\1AudioVideo/' $yandex_music_desktop_file_location
 else
     echo -ne "${CYAN}yandex music desktop file does not exist.\n${NC}"
 fi
