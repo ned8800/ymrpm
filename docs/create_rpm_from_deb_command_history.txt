@@ -1,5 +1,5 @@
 --- PREPARING ENVIRONMENT ---
---- MUST CREATE makerpm USER BEFORE THAT STEP ---
+--- MUST CREATE makerpm USER WITH SUDO PRIVILEGES BEFORE THAT STEP ---
 sudo apt update
 sudo apt install rpm build-essential
 rpmbuild --version
