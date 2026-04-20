@@ -1,22 +1,44 @@
 --- PREPARING ENVIRONMENT ---
+sudo useradd -m -s /bin/bash makerpm
+sudo usermod -aG sudo makerpm
+sudo passwd makerpm 
+
 --- MUST CREATE makerpm USER WITH SUDO PRIVILEGES BEFORE THAT STEP ---
 sudo apt update
 sudo apt install rpm build-essential
 rpmbuild --version
-sudo useradd -m -s /bin/bash makerpm
-sudo usermod -aG sudo makerpm
-sudo passwd makerpm 
+
 su makerpm
 mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros
 mkdir ~/Downloads
 
---- BUILDING PACKAGE ---
-cd Downloads/
+--- BUILDING PACKAGE USING DOWNLOAD SCRIPT ---
+mkdir ~/script_dir
+cd ~/script_dir/
 ls
-sudo cp /home/ned8800/qemu-data/shared-folder/Yandex_Music_amd64_5.78.4.deb ./
+sudo cp /home/your_main_username/Downloads/download_and_convert_script.sh ./
+sudo chown makerpm:makerpm ./download_and_convert_script.sh 
+
+./download_and_convert_script.sh 
+
+sudo cp yandexmusic-<latest_package_version>.x86_64.rpm  /home/your_main_username/Downloads/
+sudo chown your_main_username:your_main_username /home/your_main_username/Downloads/yandexmusic-<latest_package_version>.x86_64.rpm 
+exit
+
+--- BUILDING PACKAGE BY HAND ---
+--- DOWNLOAD LATEST .deb VERSION OF YANDEX MUSIC FROM OFFICIAL WEBSITE ---
+cd ~/Downloads/
 ls
-sudo chown makerpm:makerpm ./Yandex_Music_amd64_5.78.4.deb 
+pwd
+
+exit
+su makerpm
+cd /home/makerpm/Downloads/
+ls
+sudo cp /home/your_main_username/Downloads/Yandex_Music_amd64_<latest_package_version>.deb ./
+ls
+sudo chown makerpm:makerpm ./Yandex_Music_amd64_<latest_package_version>.deb 
 ls
 cd ~/rpmbuild/SOURCES/
 ls -latr
@@ -25,19 +47,21 @@ cd temp/
 ls -latr
 cp ~/Downloads/Yandex_Music_amd64_5.78.4.deb ./
 ls -latr
-sudo alien -r -v --scripts --generate ./Yandex_Music_amd64_5.78.4.deb 
+sudo alien -r -v --scripts --generate ./Yandex_Music_amd64_<latest_package_version>.deb
+
 ls -latr
-cp -R ./yandexmusic-5.78.4/ ~/rpmbuild/SPECS/
-cd ~/rpmbuild/SPECS/
-ls
-cd yandexmusic-5.78.4/
-ls
-rpmbuild -ba --target x86_64 --buildroot="$(pwd)" ./yandexmusic-5.78.4-1.spec 
-ls
+cp -R ./yandexmusic-<latest_package_version>/ ~/rpmbuild/SPECS/
 cd ~/rpmbuild/SPECS/
 ls -latr
-cp yandexmusic-5.78.4-1.x86_64.rpm ~/Downloads/
-rm ~/Downloads/yandexmusic-5.78.4-1.x86_64.rpm 
-cp yandexmusic-5.78.4-1.x86_64.rpm ~/Downloads/
-history 30
+cd yandexmusic-<latest_package_version>/
+ls
+rpmbuild -ba --target x86_64 --buildroot="$(pwd)" ./yandexmusic-<latest_package_version>.spec 
+ls
+cd ~/rpmbuild/SPECS/
+ls -latr
+
+sudo cp ./yandexmusic-<latest_package_version>.x86_64.rpm  /home/your_main_username/Downloads/
+sudo chown your_main_username:your_main_username /home/your_main_username/Downloads/yandexmusic-<latest_package_version>.x86_64.rpm
+exit
+history 50
 

@@ -3,10 +3,9 @@
 
 if [[ $1 == "-v" || $1 == "--verbose"  ]]; then
   verbose="-v"
+  set -x
 fi
 
-echo "${CYAN}Hello, this script will automatically download the latest version of Yandex Music .deb pachage existing on oficial website at the moment and convert it into an .rpm package. ${NC}"
-echo "${CYAN}This new .rpm package will appear in location from which script was executed. ${NC}"
 
 # Prepair environment
 yandex_music_deb_file="yandex_music.deb"
@@ -41,6 +40,12 @@ fi
 
 eval "mkdir $rpmbuild_sources_dir $err_stream"
 eval "mkdir $rpmbuild_specs_dir $err_stream"
+
+set -e 
+
+echo -en "${CYAN}Hello, this script will automatically download the latest version of Yandex Music .deb pachage existing on oficial website at the moment and convert it into an .rpm package. ${NC}\n"
+echo -en "${CYAN}This new .rpm package will appear in location from which script was executed. ${NC}\n"
+
 
 echo -ne "${CYAN}\n<------------------------------------------------------>\n"
 echo "Begin downloading current version of yandex music .deb"
