@@ -15,7 +15,7 @@ At the moment, the sequence of creating the .rpm package of Yandex Music is as f
   and "How to Use rpmbuild on Ubuntu to Create an RPM Package.pdf" in the <a href="docs">docs</a> folder. <br>
 4) Open the terminal and transfer script to makerpm user space using the command `sudo cp "/home/<your-username>/path/to/script/download_and_convert_script.sh " /home/makerpm/`. <br>
 Log in to the terminal under the username "makerpm" using the command `su makerpm` and navigate to its home directory using the command `cd` without command line arguments. <br>
-The script should be located inside the makerpm user's home directory, check for its presence with the command "ls -l". <br>
+The script should be located inside the makerpm user's home directory, check for its presence with the command `ls -l`. <br>
 Make the script owned by the makerpm user using the command `sudo chown makerpm:makerpm ./download_and_convert_script.sh `. <br>
 Make the script executable using the `chmod +x' command./download_and_convert_script.sh ` command. <br>
 Then run the script itself using the command: `./download_and_convert_script.sh `. <br>
@@ -50,7 +50,7 @@ Latest built package located in [releases](https://github.com/ned8800/ymrpm/rele
   и "How to Use rpmbuild on Ubuntu to Create an RPM Package.pdf" в папке <a href="docs">docs</a>. <br>
 4) Войдите в терминал и перенесите скрипт в пространство пользователя makerpm, используя команду `sudo cp "/home/<ваше-имя-пользователя>/путь/к/скрипту/download_and_convert_script.sh" /home/makerpm/`. <br>
 Войдите в терминал под именем пользователя "makerpm", используя команду `su makerpm` и перейдите в его домашнюю директорию используя команду `cd` без аргументов командной строки. <br>
-Скрипт должен находиться в домашней директории пользователя makerpm, проверьте его наличие командной "ls -l". <br>
+Скрипт должен находиться в домашней директории пользователя makerpm, проверьте его наличие командной `ls -l`. <br>
 Сделайте скрипт принадлежащим пользователю makerpm с помощью команды  `sudo chown makerpm:makerpm  ./download_and_convert_script.sh`. <br>
 Сделайте скрипт исполняемым с помощью команды `chmod +x  ./download_and_convert_script.sh`. <br>
 Затем запустите скрипт с помощью команды: `./download_and_convert_script.sh`.  <br>
