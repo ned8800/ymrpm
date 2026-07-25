@@ -24,7 +24,7 @@ You will need to enter the makerpm sudo password when the script requests it, so
 The converted .rpm package will be located in the same directory from where the script was launched. <br>
 You can transfer the received .rpm file of the Yandex Music application using 2 commands: <br>
 `sudo cp yandexmusic-<latest-version-number>.x86_64.rpm  /home/<your-username>/` <br>
-and `sudo chown <your-username>  /home/<your-username>/yandexmusic-<latest-version-number>.x86_64.rpm` .
+and `sudo chown <your-username>  /home/<your-username>/yandexmusic-<latest-version-number>.x86_64.rpm` . <br>
  5*) To prevent unexpected errors, I recommend running the script inside the "/home/makerpm" directory. <br>
    Then transfer the converted .rpm package to the directory of the main user of the VM using the `sudo cp ...` command. <br>
 
@@ -59,7 +59,7 @@ Latest built package located in [releases](https://github.com/ned8800/ymrpm/rele
 Конвертированный .rpm пакет будет лежать в той же директории, откуда скрипт был запущен. <br>
 Перенести полученный .rpm файл приложения Яндекс Музыки можно через 2 команды: <br>
 `sudo cp yandexmusic-<номер-последней-версии>.x86_64.rpm  /home/<ваше-имя-пользователя>/`  <br>
-и `sudo chown <ваше-имя-пользователя> /home/<ваше-имя-пользователя>/yandexmusic-<номер-последней-версии>.x86_64.rpm` .
+и `sudo chown <ваше-имя-пользователя> /home/<ваше-имя-пользователя>/yandexmusic-<номер-последней-версии>.x86_64.rpm` . <br>
  5*) Для предотвращения непредвиденных ошибок, я рекомендую запускать скрипт внутри директории"/home/makerpm". <br>
    Затем перенести конвертированный .rpm пакет в директорию основного пользователя виртуальной машины с помощью команды `sudo cp ...`. <br>
 
