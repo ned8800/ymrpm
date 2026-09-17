@@ -1,0 +1,24 @@
+# Настройки для автоматической генерации заметок к релизу (Release Notes)
+
+changelog:
+  exclude:
+    labels:
+      - duplicate
+      - ignore-for-release
+    authors:
+      - web-flow
+      - dependabot[bot]
+
+  categories:
+    - title: "Release contents"
+      labels:
+        - enhancement
+        - major
+
+    - title: "Tested on"
+      labels:
+        - fix
+
+    - title: "Release notes"
+      labels:
+        - "*"
