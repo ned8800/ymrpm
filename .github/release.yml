@@ -1,30 +1,17 @@
-# Настройки для автоматической генерации заметок к релизу (Release Notes)
-
 changelog:
-  exclude:
-    labels:
-      - duplicate
-      - ignore-for-release
-    authors:
-      - web-flow
-      - dependabot[bot]
-
+  # 1. Говорим гитхабу включать абсолютно все коммиты, даже если нет PR
   categories:
-    - title: "Release contents"
+    - title: "📦 Изменения"
       labels:
-        - enhancement
-        - major
+        - '*'
+
+  # 2. Переопределяем логику вывода. Текст внутри блока подставится ВСЕГДА
   renderers:
-    - |
-        # Release contents:
-        This release contains build of Yandex Music desktop app
-          - version: 5.118.1
-          - build for: x86_64 systems.
-          - Name of package: yandexmusic-5.118.1-Inf.x86_64.rpm
+    - - |
+        This release contains build of Yandex Music desktop app version $version for x86_64 systems.
+        Name of package: yandexmusic-$version-Inf.x86_64.rpm
 
-        # Tests:
-        Package tested on:
-          - Fedora 43.
+        Package tested on Fedora 43.
 
-        # Release notes:
+        Release notes:
         Regular update.
