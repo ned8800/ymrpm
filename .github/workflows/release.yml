@@ -1,0 +1,38 @@
+name: Auto create release notes
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ env.VERSION }}
+          body: |
+                \# Release contents:
+                This release contains build of Yandex Music desktop app
+                  - version: ${{ env.VERSION }}
+                  - build for: x86_64 systems.
+                  - Name of package: yandexmusic-${{ env.VERSION }}-x86_64.rpm
+
+                \# Tests:
+                Package tested on:
+                  - Fedora 43.
+
+                \# Release notes:
+                Regular update.
