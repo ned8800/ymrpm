@@ -15,7 +15,7 @@ changelog:
         - enhancement
         - major
   renderers:
-    - - |
+    - |
         # Release contents:
         This release contains build of Yandex Music desktop app
           - version: 5.118.1
