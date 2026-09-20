@@ -24,15 +24,15 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ env.VERSION }}
           body: |
-                \# Release contents:
+                # Release contents:
                 This release contains build of Yandex Music desktop app
                   - version: ${{ env.VERSION }}
                   - build for: x86_64 systems.
                   - Name of package: yandexmusic-${{ env.VERSION }}-x86_64.rpm
 
-                \# Tests:
+                # Tests:
                 Package tested on:
                   - Fedora 43.
 
-                \# Release notes:
+                # Release notes:
                 Regular update.
